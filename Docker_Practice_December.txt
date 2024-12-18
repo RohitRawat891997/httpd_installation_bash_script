@@ -1,0 +1,271 @@
+  VCS tools: Version control system (GIT)
+
+======================================================
+
+1) GIT server:  the machine where we are maintain all software changes.
+
+	1) Community based:
+
+		1) 	GITHUB
+		2)	GITLAB
+		3)	Bitbucket
+	
+	2) Company Based  (own GIT server)
+
+
+
+2) GIT client:
+
+	developers workstation
+
+	  1) CLI
+	  2) GUI: graphical user interface
+
+
+
+3) GIT Repository:  it is simple directory/folder where you putting our project files.
+
+		1) Remote Repository (Server Side Repo)
+		2) Local Repository (Client Repo)
+
+
+
+4) GIT commit: inside the repo .. commit is an logical restore point/version of your changes.
+
+
+
+5) GIT Branch: its is logical isolation inside the repo based on software release.
+
+	Note: there is one branch automatically created (Master)
+
+
+
+6) GIT  workflow:
+
+
+======================================================
+
+
+	GIT workflow
+
+
+#### Harry User ####
+
+mkdir repos
+cd repos
+git init
+echo "hi" > file-1.txt  (non staging)
+git  add  file-1.txt     (staging)
+git commit -m  "first commit"
+git  log 
+git show commit
+git remote add origin masterrepo
+git push
+#### Day-1 Complete ####
+__________________________________________
+
+git pull
+
+again review
+code update
+commit
+git push
+
+____________________________________________________________
+____________________________________________________________
+
+#### Jeff user ####
+
+git clone masterrepo
+cd masterrepo
+git log
+git show commit
+code update
+git add .
+git commit -m "second commit"
+git push
+####  End Day-2  ####
+_______________________________
+
+git pull
+code review
+code update
+code push
+
+======================================================
+
+	Day-1 Practice  [Basic Commands]
+
+======================================================
+
+#### harry_server ####
+
+#install the git package
+yum  install  -y   git		
+
+
+#configure the username and user email i'd.
+
+git  config  --global   user.name   harry
+git  config  --global   user.email  harry@gmail.com
+
+cat  ~/.gitconfig  	 #check the username and email
+
+
+#practice examples:-
+
+mkdir   harry_repo
+cd   harry_repo
+ls  -a
+git   init
+ls  -a
+echo  "hi"  >  index.html
+git  status -s
+git   add   index.html
+git   status  -s 
+git   rm   --cached index.html
+git   status  -s
+git   add   .
+git   status  -s
+git   rm   index.html
+git   checkout   index.html
+git   status   -s 
+git   commit  -m   "function add"
+git   log 
+git   branch
+git   show   <commit id>
+echo  "how are you all?"   >>   index.html
+git   status  -s
+cat   index.html
+git   add   .
+git   commit   -m   "function modify"
+git   show   <commit id>
+git   remote   add   origin   <URL>
+git   push   origin   master
+
+----------------------------------------------
+
+#### jeff_server ####
+
+#install the git package
+yum  install  -y   git		
+
+
+#configure the username and user email i'd.
+
+git  config  --global   user.name   jeff
+git  config  --global   user.email  jeff@gmail.com
+
+cat  ~/.gitconfig  	 #check the username and email
+
+
+#practice examples:-
+
+git   clone   <url>
+cd    <repo_directory_name>
+git   init 
+ls
+git   log
+echo  "jeff   code"  >  jeff-1.txt
+git   status  -s
+git   add   jeff-1.txt
+git   status  -s
+git   commit  -m  "code change"
+git   log
+git   remote  add  origin   <URL>
+git   push   master
+
+======================================================
+
+	Day-2  Practice Class [ Merge Concept ]
+
+======================================================
+
+case-1: Unable to update repogitery command by git  push  origin  master
+solve=  git  pull  origin  master
+
+case-2: Merge conflict?
+	echo  hi  >  httpd.php
+	git  add  httpd.php
+	git  commit  -m  "merge commit"
+	git  push  origin  master
+	git  pull  origin  master
+	git  status  -s
+	vim  httpd.php
+	git  add  .
+	git  status  -s
+	git  commit  -m  "merge commit"
+	git  push  origin  master
+
+	
+	
+======================================================
+
+	Day-3  Practice Class  [ GIT Branch Concept ]
+
+======================================================
+#### jaff server ####
+
+git   branch
+git   branch   stage
+git   checkout   stage
+git   branch
+echo "new branch"  >  newfile.txt
+git   add   .
+git   commit   -m   "new commit branch"
+git   push   origin   stage
+
+
+#### harry server ####
+
+git   branch
+git   fetch
+git   branch
+git   branch   -a
+ls
+git   checkout   stage
+git   branch
+ls
+________________________________________________________
+
+git  reset  --soft  <commit id>    #delete the commit id  using this cmd
+git  branch  -D  <branch name>     #delelte the branch using this cmd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
